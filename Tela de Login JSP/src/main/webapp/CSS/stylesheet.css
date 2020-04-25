@@ -1,0 +1,87 @@
+
+*{
+  color:darkslategray;
+  box-sizing:border-box;
+  padding:0px;
+  margin:0px;
+  list-style:none;
+  text-decoration:none;
+  font-family:'Roboto', sans-serif;
+}
+
+body{
+  background:#f1f2f3;
+}
+
+.panel{
+  margin:0 auto;
+  margin-top:80px;
+  border:1px solid silver;
+  width:300px;
+  padding:20px;
+  background:#fafafa;
+}
+
+#login h1{
+  font-size:100px;
+  color:red;
+}
+
+#login h3{
+  text-transform:uppercase;
+}
+
+#login .text-center{
+  text-align:center;
+}
+
+#login .form-group{
+  margin:20px 0px;
+}
+
+#login .form-control{
+  text-align:center;
+  width:100%;
+  padding:10px;
+}
+
+#login .btn{
+  font-weight:bold;
+  border:1px solid #20c997;
+  width:100%;
+  padding:10px;
+  background:#20c997;
+}
+
+#login spam{
+  font-size: 13px;
+  font-weight: bold;
+  font-style: italic;
+  color:red;
+}
+
+#login a{
+  text-align: center;
+  font-size: 15px;
+  padding:10px;
+  color:steelblue;
+}
+
+input[type='text'],
+input[type='password']{  
+  border:1px solid silver;
+  font-weight:bold;
+}
+
+input[type='text']:hover,
+input[type='password']:hover{  
+  border:1px solid #333;
+}
+
+.btn:hover{
+  background:#12b886;
+}
+
+.btn, input[type='text'],input[type='password']{  
+  box-shadow:3px 3px #0001;
+}
