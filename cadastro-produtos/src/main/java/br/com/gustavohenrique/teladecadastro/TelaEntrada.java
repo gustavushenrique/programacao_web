@@ -83,31 +83,37 @@ public class TelaEntrada extends JPanel {
 
 			public void actionPerformed(ActionEvent e) {
 
-				JTable table = new JTable(tableModel);
-				tableModel.addColumn("NOME");
-				tableModel.addColumn("QUANTIDADE");
-				tableModel.addColumn("VALOR");
-
 				for (int i = 0; i < produtos.size(); i++) {
 					System.out.println(produtos.get(i));
 
 				}
 
-				for (Produto obProduto : produtos) {
-					tableModel.insertRow(tableModel.getRowCount(), new Object[] { obProduto.getNome().toUpperCase(),
-							obProduto.getQuantidade(), obProduto.getValor() });
+				Object[] colunas = new Object[] { "NOME", "QUANTIDADE", "PREÇO UNITÁRIO R$", "VALOR TOTAL R$" };
+				Object[][] linhas = new Object[produtos.size() + 1][4];
+
+				for (int i = 0; i < produtos.size(); i++) {
+					Object[] linha = new Object[] { produtos.get(i).getNome().toUpperCase(),
+							produtos.get(i).getQuantidade(), produtos.get(i).getValor(),
+							produtos.get(i).getValor() * produtos.get(i).getQuantidade() };
+					linhas[i] = linha;
+
 				}
 
-				int somaQuantidade = 0, somaValor = 0;
+				int quatidadeSoma = 0;
+				double somaValor = 0, total = 0;
 
-				for (Produto objects : produtos) {
-					somaQuantidade += objects.getQuantidade();
-					somaValor += objects.getValor();
+				for (Produto produto : produtos) {
+					quatidadeSoma = quatidadeSoma + produto.getQuantidade();
+					somaValor = produto.getQuantidade() * produto.getValor();
+					total += somaValor;
+
 				}
 
-				tableModel.insertRow(tableModel.getRowCount(), new Object[] { "TOTAL", somaQuantidade, somaValor });
+				linhas[produtos.size()] = new Object[] { "TOTAL", quatidadeSoma, "", total };
 
-				JOptionPane.showMessageDialog(null, new JScrollPane(table));
+				JTable tabela = new JTable(linhas, colunas);
+
+				JOptionPane.showMessageDialog(null, new JScrollPane(tabela));
 
 			}
 
